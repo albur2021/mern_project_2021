@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import React from "react";
+import Card from "./components/Card";
+import Header from "./components/Header";
+import Wrapper from "./components/Wrapper";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header>
+        <Card lucky={5} word="hello" />
+        <Wrapper>
+          <Card lucky={10} word="world" />
+        </Wrapper>
+
+        <Card lucky={7} word="code" />
+        <Card lucky={2} word="lucky" />
+      </Header>
+      <Card lucky={3} word="footer" />
+      <Card lucky={19} word="footer1" />
+      <button onClick={() => alert("you clicked your first BUTTON!")}>
+        Click me!
+      </button>
     </div>
   );
 }

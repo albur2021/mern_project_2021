@@ -50,9 +50,9 @@ const Form = (props) =>{
         <div className="form-group">
             <input type="submit" value="+ Add" className="btn btn-primary"/>
         </div>
-        <h3>Name: { myForm.Alias }</h3>
+        {/* <h3>Name: { myForm.Alias }</h3>
         <h3>Skill: { myForm.Skill }</h3>
-        <h3>Leaning: { myForm.Leaning }</h3>
+        <h3>Leaning: { myForm.Leaning }</h3> */}
     </form> 
     )
 }

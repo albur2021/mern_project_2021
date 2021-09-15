@@ -21,26 +21,32 @@ const Result = (props) => {
           <th>Name</th>
           <th>Skill(s)</th>
           <th>Leaning</th>
+          <th>Is Alive ?</th>
         </tr>
         <tbody>
-          {props.myList.map((character, i) => {
-            return (
-              <tr
-                key={i}
-                style={
-                  character.Leaning == "Hero"
-                    ? heroBg
-                    : character.Leaning == "Villain"
-                    ? villainBg
-                    : otherBg
-                }
-              >
-                <td>{character.Alias}</td>
-                <td>{character.Skill}</td>
-                <td>{character.Leaning}</td>
-              </tr>
-            );
-          })}
+
+          {
+            props.myList.map((character, i) => {
+                return (
+                <tr
+                    key={i}
+                    style={
+                    character.Leaning == "Hero"
+                        ? heroBg
+                        : character.Leaning == "Villain"
+                        ? villainBg
+                        : otherBg
+                    }
+                >
+                    <td>{character.Alias}</td>
+                    <td>{character.Skill}</td>
+                    <td>{character.Leaning}</td>
+                    <td>{character.isAlive ? "Yes" : "No"}</td>
+                </tr>
+                );
+            })
+          }
+
         </tbody>
       </table>
     </div>

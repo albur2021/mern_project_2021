@@ -9,7 +9,8 @@ const Form = (props) =>{
     const [myForm, setMyForm] = useState({
         Alias:"",
         Skill:"",
-        Leaning:""
+        Leaning:"",
+        isAlive:true
     });
 
     const onChangeHandler = (e) =>{
@@ -27,6 +28,12 @@ const Form = (props) =>{
         //Lifting the Data up from Form Box to App.js to lender That Data to Result Comp
         // Because 'siblings like Form and Result cannot share data between, it's only Parent/App.js might delegate/spread the Data among Child Comps
         props.newCharacter(myForm);
+    }
+    const checkedHandler = (e) =>{
+        setMyForm({
+            ...myForm,
+            [e.target.name]:e.target.checked
+        });
     }
     return(
     <form className="col" onSubmit={ onSubmitHandler }>
@@ -46,6 +53,10 @@ const Form = (props) =>{
                 <option value="Villain">Villain</option>
                 <option value="Other">Other</option>
             </select>
+        </div>
+        <div className="form-group">
+            <input type="checkbox" name="isAlive" className="form-control" checked={myForm.isAlive} onChange={ checkedHandler }/>
+            <label htmlFor="isAlive">Is Alive ?</label>
         </div>
         <div className="form-group">
             <input type="submit" value="+ Add" className="btn btn-primary"/>

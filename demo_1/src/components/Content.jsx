@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 const Content = (props) => {
+ 
   return (
     <div className="box">
       <ul>

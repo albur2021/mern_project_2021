@@ -11,6 +11,19 @@ const Result = (props) => {
   const otherBg = {
     backgroundColor: "goldenrod",
   };
+  const isDead = {
+    textDecoration: 'line-through'
+  };
+  const alive = {
+      textDecoration: 'none'
+  };
+  const checkIsAlive = (e) =>{
+    // console.log(e.target.value);
+    props.updateIsAlive(e.target.value);// have this method from App.js/Parent Comp
+  };
+
+ 
+
   return (
     <div className="col">
       {/* {props.myList}  wrong can't render array by using this way!!!*/}
@@ -38,10 +51,18 @@ const Result = (props) => {
                         : otherBg
                     }
                 >
-                    <td>{character.Alias}</td>
+                    <td style={character.isAlive ? alive : isDead}>{character.Alias}</td>
                     <td>{character.Skill}</td>
                     <td>{character.Leaning}</td>
-                    <td>{character.isAlive ? "Yes" : "No"}</td>
+                    <td>{character.isAlive ? "Yes" : "No"}
+                        <input 
+                        type="checkbox" 
+                        name="isAlive" 
+                        className="form-control" 
+                        checked={character.isAlive}
+                        value = {i}
+                        onChange={checkIsAlive}/>
+                    </td>
                 </tr>
                 );
             })

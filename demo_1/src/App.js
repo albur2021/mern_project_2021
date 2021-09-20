@@ -12,6 +12,13 @@ function App() {
   const addNew = (myCharacters) => {
     setListOfCharacters([...listOfCharacters, myCharacters]);
   };
+  const updateIsAlive = (idx) =>{
+    // console.log(idx);
+    // console.log("This Object coming from App.js ", listOfCharacters[idx]);
+    const charToUpdate = listOfCharacters[idx];
+    charToUpdate.isAlive = !charToUpdate.isAlive;
+    setListOfCharacters([...listOfCharacters]);
+  }
   return (
     <div className="App container-flued">
       <h1>List of characters</h1>
@@ -19,7 +26,7 @@ function App() {
         {/* apply 'addNew method' here as parameter */}
         <Form newCharacter={addNew} />
         {/* passing down List/Array of characters from Form */}
-        <Result myList={listOfCharacters} />
+        <Result myList={listOfCharacters} updateIsAlive = {updateIsAlive}/>
       </div>
     </div>
   );

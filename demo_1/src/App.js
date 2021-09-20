@@ -10,12 +10,15 @@ function App() {
   const addItem = (newItem) => {
     setListOfItems([...listOfItems, newItem]);
   };
+  const deleteItem = (idx) =>{
+    setListOfItems([...listOfItems.slice(0,idx), ...listOfItems.slice(idx +1)]);
+  };
   return (
     <div className="container-fluid row">
       <Form addItem={addItem} />
       <Items />Ï
       <div>
-        <Result list={listOfItems} />
+        <Result list={listOfItems} deleteItem ={deleteItem}/>
       </div>
     </div>
   );

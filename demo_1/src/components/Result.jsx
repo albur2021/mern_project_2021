@@ -16,9 +16,10 @@ const Result = (props) => {
   };
   return (
     <div>
-      {props.list.map((item) => {
+      {props.list.map((item,i) => {
         return <p style={item.Priority == "Low" ? low : item.Priority == "Medium" ? medium : high}> 
         {item.ItemName}
+        <button onClick={()=> props.deleteItem(i)}>X</button>
         </p>;
       })}
     </div>

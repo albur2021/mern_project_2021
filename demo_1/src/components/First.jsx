@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import { navigate } from '@reach/router';
 
-
-const FIrst = (props) =>{
-
-return(
-  <div>
-    <h1>Test 1</h1>
-  </div>
-  )
+const First = (props) =>{
+    const click = () =>{
+        navigate("/third");
+    }
+    return(
+    <div>
+        <button onClick={ click }>Test 1@</button>
+    </div>
+    )
 }
 
 
-export default FIrst;
+export default First;

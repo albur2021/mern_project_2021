@@ -1,25 +1,22 @@
 import "./App.css";
 import React, { useState } from "react";
-import Form from "./components/Form";
-import "bootstrap/dist/css/bootstrap.css";
-import Items from "./components/Items";
-import Result from "./components/Result";
 
+import "bootstrap/dist/css/bootstrap.css";
+import First from "./components/First";
+import Second from "./components/Second";
+import Third from "./components/Third";
+import { Router } from "@reach/router";
+
+//Import this dependency from node_module in terminal
+//by: npm i @reach/router --force
 function App() {
-  const [listOfItems, setListOfItems] = useState([]);
-  const addItem = (newItem) => {
-    setListOfItems([...listOfItems, newItem]);
-  };
-  const deleteItem = (idx) =>{
-    setListOfItems([...listOfItems.slice(0,idx), ...listOfItems.slice(idx +1)]);
-  };
   return (
-    <div className="container-fluid row">
-      <Form addItem={addItem} />
-      <Items />Ï
-      <div>
-        <Result list={listOfItems} deleteItem ={deleteItem}/>
-      </div>
+    <div className="App">
+      <Router>
+        <First  path="/"/>
+        <Second path="/second"/>
+        <Third  path="/third"/>
+      </Router>
     </div>
   );
 }

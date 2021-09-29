@@ -1,33 +1,60 @@
 import React, { useState } from "react";
 
 const Form = (props) => {
+  const [myForm, setMyForm] = useState({
+    Type: "education",
+    Participants: 1,
+  });
+  const options = [
+    "education",
+    "recreational",
+    "social",
+    "diy",
+    "charity",
+    "cooking",
+    "relaxation",
+    "music",
+    "busywork",
+  ];
+  const onChangeHandler = (e) => {
+    setMyForm({ ...myForm, [e.target.name]: e.target.value });
+  };
+  const onSubmitHandler = (e) => {
+    e.preventDefault();
+    //send the form up to App.js using a prop
+    props.cureBoredom(myForm);
+  };
+
   return (
-    <form className="col-4">
+    <form onSubmit={onSubmitHandler} className="col-6">
       <div className="form-group">
-        <label htmlFor="ItemName">Item Name</label>
-        <input type="text" name="ItemName" className="form-control" />
-      </div>
-      <div className="form-group">
-        <label htmlFor="Category">Category</label>
-        <select name="Category" className="form-control">
-          <option value="Grocery">Grocery</option>
-          <option value="Electronic">Electronic</option>
-          <option value="Personal">Personal</option>
-          <option value="Entertainment">Entertainment</option>
-          <option value="Other">Other</option>
+        <label htmlFor="Type">Type of Activity</label>
+        />
+        <select name="Type" className="form-control" onChange={onChangeHandler} >
+          {options.map((item, i) => {
+            return (
+              <option value={item} key={i}>
+                {item}
+              </option>
+            );
+          })}
         </select>
       </div>
       <div className="form-group">
-        <label htmlFor="Priority">Priority</label>
-        <select name="Priority" className="form-control">
-          <option value="Low">Low</option>
-          <option value="Medium">Medium</option>
-          <option value="High">High</option>
-        </select>
+        <label htmlFor="Participants">No. of Participants</label>
+        <input
+          type="number"
+          name="Participants"
+          className="form-control"
+          value={myForm.Participants}
+          onChange={onChangeHandler}
+        />
       </div>
-      <div className="form-group">
-        <input type="submit" value="+ Add" className="btn btn-primary" />
-      </div>
+      <input
+        type="submit"
+        value="Cure boredom"
+        className="btn btn-primary form-group"
+      />
     </form>
   );
 };

@@ -12,7 +12,7 @@ const Result = (props) => {
   },[props]);
   return (
     <div>
-      <h2>{res.activity}</h2>
+      <h4>Activity: {res.activity}</h4>
       <h4>Type: {res.type}</h4>
       <h4>Participants #: {res.participants}</h4>
     </div>

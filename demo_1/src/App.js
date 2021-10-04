@@ -12,9 +12,9 @@ function App() {
 
   //updating before passing down to Result Comp
   const findActivity = (form) =>{
-    setMyType(form.Type);
-    setMyPart(form.Participants);
-    navigate("/result");
+    setMyType(form.Type);//make sure that object's name is matched to object's name from Form
+    setMyPart(form.Participants);//make sure that object's name is matched to object's name from Form
+    navigate("/result");//passing through the router to Result Comp
   };
   return (
     <div className="container">

@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 
 //Mongoose gives me an easy way to connect to the MongoDB database
-mongoose.connect("mongodb://localhost/mongoose_demo", {
+mongoose.connect("mongodb://localhost/full_stack_october_demo", {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
